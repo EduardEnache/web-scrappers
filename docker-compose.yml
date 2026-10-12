@@ -11,6 +11,13 @@ services:
     volumes:
       - .:/app
     restart: always
+    healthcheck:
+      # each loop (~1h) touches /tmp/heartbeat; older than 90 min = hung
+      test: ["CMD-SHELL", "test $$(( $$(date +%s) - $$(stat -c %Y /tmp/heartbeat) )) -lt 5400"]
+      interval: 5m
+      timeout: 5s
+      retries: 2
+      start_period: 2m
     dns:
       - 8.8.8.8
       - 1.1.1.1
@@ -25,6 +32,13 @@ services:
     volumes:
       - .:/app
     restart: always
+    healthcheck:
+      # each loop (~1h) touches /tmp/heartbeat; older than 90 min = hung
+      test: ["CMD-SHELL", "test $$(( $$(date +%s) - $$(stat -c %Y /tmp/heartbeat) )) -lt 5400"]
+      interval: 5m
+      timeout: 5s
+      retries: 2
+      start_period: 2m
     dns:
       - 8.8.8.8
       - 1.1.1.1
@@ -39,6 +53,13 @@ services:
     volumes:
       - .:/app
     restart: always
+    healthcheck:
+      # each loop (~1h) touches /tmp/heartbeat; older than 90 min = hung
+      test: ["CMD-SHELL", "test $$(( $$(date +%s) - $$(stat -c %Y /tmp/heartbeat) )) -lt 5400"]
+      interval: 5m
+      timeout: 5s
+      retries: 2
+      start_period: 2m
     dns:
       - 8.8.8.8
       - 1.1.1.1

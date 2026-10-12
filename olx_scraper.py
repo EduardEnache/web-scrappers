@@ -99,6 +99,8 @@ if __name__ == "__main__":
         os.rename("seen_ads.json", DB_FILE)
 
     while True:
+        # heartbeat for the compose healthcheck: a hung loop stops touching it
+        open("/tmp/heartbeat", "w").close()
         print(f"[{get_local_time()}] Începere scanare {TAG}...")
         scrape()
         sleep_time = random.randint(3300, 3900)
