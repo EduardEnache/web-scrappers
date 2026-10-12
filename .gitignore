@@ -1,0 +1,20 @@
+# secrets
+.env
+.env.*
+!.env.example
+# deps / build output / caches
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.venv/
+*.log
+*.tmp
+*.bak
+# graphify: keep graphs + memory notes, skip cache and the 5-min history feed
+graphify-out/cache/
+graphify-out/history.json
+
+# runtime state (seen listings) and throwaway experiments
+seen_*.json
+scratch/

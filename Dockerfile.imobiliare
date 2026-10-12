@@ -1,0 +1,26 @@
+FROM python:3.11-slim
+
+# Install system dependencies (xvfb for a virtual display - patchright is more
+# detectable by DataDome in pure headless mode)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential curl xvfb xauth \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+
+# Install Python packages + patchright's browser binaries and OS deps
+RUN pip install --no-cache-dir requests beautifulsoup4 pytz patchright \
+    && patchright install --with-deps chromium \
+    && useradd -m -u 1000 pwuser \
+    && mkdir -p /data/chrome-profile && chown -R pwuser /data /ms-playwright \
+    && mkdir -p /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix
+
+# Copy the project
+COPY . .
+RUN chown -R pwuser /app
+
+USER pwuser
+
+CMD ["python", "imobiliare_scraper.py"]

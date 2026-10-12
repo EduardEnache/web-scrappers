@@ -1,0 +1,9 @@
+*.html
+*.log
+logs.txt
+cron.log
+publi24_debug.log
+fix_logs.txt
+seen_*.json
+test_ai.json
+__pycache__/
