@@ -18,3 +18,4 @@ graphify-out/history.json
 # runtime state (seen listings) and throwaway experiments
 seen_*.json
 scratch/
+
