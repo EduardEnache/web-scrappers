@@ -107,7 +107,6 @@ def scrape():
             location_tag = ad.find('span', class_=lambda x: x and 'location' in x) or ad.find('p', class_='ad-location')
             neighborhood = location_tag.text.strip() if location_tag else "București"
             
-            # --- AI FALLBACK REMOVED ---
             
             image_link = f'<a href="{image_url}">&#8205;</a>' if image_url else ""
             msg = (

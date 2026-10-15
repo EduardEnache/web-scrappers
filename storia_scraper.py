@@ -96,10 +96,8 @@ def scrape():
             sq_meters = extract_mp(ad_soup)
             metro_station = extract_metro(ad_soup)
                 
-            # neighborhood is already defined from the list card, 
-            # but we can refine it with AI if it's just "București"
+            # neighborhood comes from the list card
             
-            # --- AI FALLBACK REMOVED ---
             
             image_link = f'<a href="{image_url}">&#8205;</a>' if image_url else ""
             msg = (

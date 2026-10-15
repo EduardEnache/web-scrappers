@@ -62,7 +62,6 @@ def scrape():
                 location_tag = ad.find('p', {'data-testid': 'location-date'})
                 neighborhood = location_tag.text.split(' - ')[0] if location_tag else "București"
                 
-                # --- AI FALLBACK REMOVED ---
                 
                 msg = (
                     f"<b>🏢 [{TAG}] ANUNȚ NOU</b>\n"
