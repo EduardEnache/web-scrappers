@@ -8,7 +8,7 @@ from utils import send_telegram, get_local_time, extract_mp, extract_metro, extr
 
 # --- CONFIGURATION ---
 URL = "https://www.publi24.ro/anunturi/imobiliare/de-vanzare/apartamente/bucuresti/?FromDate=639088966349430000&maxprice=125000&minprice=70000&livingspace=50-&yearofbuilding=1977-&resfeatures=decomandat&withpictures=true&commercial=false"
-CHAT_ID = "YOUR_CHAT_ID"
+CHAT_ID = os.environ["PUBLI24_CHAT_ID"]  # set in .env (gitignored)
 DB_FILE = "seen_publi24.json"
 TAG = "PUBLI24"
 

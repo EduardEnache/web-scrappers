@@ -9,7 +9,7 @@ from utils import send_telegram, get_local_time, extract_mp, extract_metro, extr
 
 # --- CONFIGURATION ---
 URL = "https://www.storia.ro/ro/rezultate/vanzare/apartament/locatii-multiple?limit=36&ownerTypeSingleSelect=ALL&priceMin=70000&priceMax=125000&areaMin=45&daysSinceCreated=7&locations=%5Bbucuresti%2Fsectorul-2%2Cbucuresti%2Fsectorul-3%5D&buildYearMin=1977&by=DEFAULT&direction=DESC"
-CHAT_ID = "YOUR_CHAT_ID"
+CHAT_ID = os.environ["STORIA_CHAT_ID"]  # set in .env (gitignored)
 DB_FILE = "seen_storia.json"
 TAG = "STORIA"
 

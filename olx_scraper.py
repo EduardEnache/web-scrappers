@@ -9,7 +9,7 @@ from utils import send_telegram, get_local_time, extract_mp, extract_metro, extr
 
 # --- CONFIGURATION ---
 URL = "https://www.olx.ro/imobiliare/apartamente-garsoniere-de-vanzare/bucuresti-ilfov-judet/?currency=EUR&search%5Bfilter_float_price:from%5D=70000&search%5Bfilter_float_price:to%5D=130000&search%5Bfilter_enum_compartimentare%5D%5B0%5D=decomandat&search%5Bfilter_float_m:from%5D=50&search%5Bfilter_enum_constructie%5D%5B0%5D=1977-1990&search%5Bfilter_enum_constructie%5D%5B1%5D=1990-2000&search%5Bfilter_enum_constructie%5D%5B2%5D=dupa-2000"
-CHAT_ID = "YOUR_CHAT_ID"
+CHAT_ID = os.environ["OLX_CHAT_ID"]  # set in .env (gitignored)
 DB_FILE = "seen_olx.json"
 TAG = "OLX"
 
